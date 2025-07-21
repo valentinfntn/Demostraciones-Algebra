@@ -1,0 +1,276 @@
+\pdfminorversion=4
+\documentclass[]{article}
+
+% Packages/Macros %
+\usepackage{amssymb,latexsym,amsmath}     % Standard packages
+\usepackage{hyperref,comment,enumitem}
+
+% Margins %
+\addtolength{\textwidth}{1.0in}
+\addtolength{\textheight}{1.00in}
+\addtolength{\evensidemargin}{-0.75in}
+\addtolength{\oddsidemargin}{-0.75in}
+\addtolength{\topmargin}{-.50in}
+
+\newtheorem{theorem}{Teorema}
+\newenvironment{proof}{\noindent{\bf Prueba:}}{$\hfill \Box$ \vspace{10pt}}  
+
+\begin{document}
+
+\title{Demostraciones Algebra}
+\maketitle
+
+\newcommand{\iSection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+}
+\newcommand{\kk}{
+    \mathbb{K}
+}
+\newcommand{\ida}{\Longrightarrow}
+\newcommand{\vuelta}{\longleftarrow}
+
+\begin{theorem}
+    Sean $A,B \in \mathbb{K}^{m\times n}$  matrices equivalentes por filas, entonces el sistema
+    de ecuaciones $Ax=0$ y $Bx=0$ tienen exactamente las mismas soluciones. 
+\end{theorem}
+\begin{proof}
+    Si $A \sim B \Longrightarrow \exists$ una sucesion de matrices tal que
+    $A=A_0 \rightarrow A_1 \rightarrow \dots \rightarrow A_n=B$, donde cada $A_j$ se obtiene por
+    medio de una operacion elemental por filas.\\
+    Por lo tanto basta probar que $A_jx=0$ y $A_{j+1}x=0$.
+    \begin{itemize}
+        \item \underline{Caso $e_r^c$}: $a_{r1}x_1+a_{r2}x_2+ \dots +a_{rn}x_n = 0 \iff
+        c \cdot a_{r1}x_1+c \cdot a_{r2}x_2+ \dots +c \cdot a_{rn}x_n = 0$, pero como $c \neq 0$
+        $\Longrightarrow c \cdot (a_{r1}x_1+a_{r2}x_2+ \dots +a_{rn}x_n) = 0$, por lo tanto 
+        ambos sistemas son iguales.
+        \item \underline{Caso $e_{r,s}$}: es trivial pues ambas filas $r,s$ ya eran iguales a 0
+        y lo siguen siendo.
+        \item \underline{Caso $e_{r,s}^c$}: $(r + c \cdot s) = (a_{r1}+c\cdot a_{s1})x_1+
+        (a_{r2}+c\cdot a_{s2})x_2+ \dots +(a_{rn}+c\cdot a_{sn})x_n = 0$ de la misma formas que en
+        el primer caso como las filas $r,s$ son iguales a 0 por lo tanto la nueva fila r tambien lo es.
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sea $A \in \mathbb{K}^{m\times n}$ con $m<n \Longrightarrow$ el sistema $Ax=0$
+    tiene soluciones no triviales.
+\end{theorem}
+\begin{proof}
+    Sea $R$ la MERF equivalente a $A \Longrightarrow$ los sistemas $Ax=0$ y $Rx=0$ tienen
+    exactamente las mismas soluciones. Sea $r=$ la cantidad de filas no nulas de $R$
+    $\Longrightarrow r \leq m$ y por lo tanto $r < n$ $\Longrightarrow$ hay $n-r>0$
+    variables libres, por lo tanto hay soluciones no triviales.
+\end{proof}
+
+\begin{theorem}
+    Sea $A \in \mathbb{K}^{n \times n}$. Entonces $A$ es equivalente por filas a las $Id \iff$
+    $Ax=0$ tiene unicamente la solucion trivial.
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $(\Longrightarrow):$ Si $A \sim Id$, estas tienen exactamente las mismas soluciones.
+        Por lo tanto como $Idx=0$ admite unicamente la solucion trivial queda probado.
+        \item $(\Longleftarrow):$ Sea $R$ la MERF $\sim A \Longrightarrow$ el sistema $Rx=0$
+        tiene unicamente la solucion trivial. Sea $r=$ la cantidad de filas no nulas de $R \Longrightarrow$
+        $n-r=0$ porque no tienen variables libres. Entonces cada fila $i$ tiene un 1 en la columna $k_i$
+        por lo tanto $R=Id$.
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Propiedades de la multiplicacion de matrices:
+    \begin{enumerate}
+        \item $A \in \mathbb{K}^{m\times n}, B \in \mathbb{K}^{n\times p},C \in \mathbb{K}^{p\times q}$
+        $\Longrightarrow (AB)C=A(BC)$.
+        \item $A \in \mathbb{K}^{m\times n} \Longrightarrow Id_mA = Id_nA = A$.
+        \item $A,A^\prime \in \mathbb{K}^{m\times n}, B,B^\prime \in \mathbb{K}^{n\times p} \Longrightarrow$
+        $(A+A^\prime)B = AB+A^\prime B$ y $A(B+B^\prime) = AB+AB^\prime$.
+        \item $A \in \mathbb{K}^{m\times n}, B \in \mathbb{K}^{n\times p},\lambda \in \mathbb{K}$
+        $\Longrightarrow \lambda \cdot (AB) = (\lambda A)B= A(\lambda B)$ 
+    \end{enumerate}
+\end{theorem}
+\newpage
+\begin{theorem}
+    Sea $e$ una operacion elemental por filas y sea $E=e(Id)$ la matriz elemental asociada.
+    Entonces para toda $A \in \mathbb{K}^{n\times n}$ se cumple que $e(A)=E \cdot A$. 
+\end{theorem}
+\begin{proof}
+    Tenemos que el elemento $i,j$ de $e(A)$ es el mismo que el de la matriz $EA$ para cada
+    operacion elemental, osea $(e(A))_{ij}=(EA)_{ij}$.
+    \begin{itemize}
+        \item \underline{Caso $e_r^c$}:
+        \begin{align*}
+            &\text{Sabemos que } (e(A))_{ij}=
+            \begin{cases}
+                A_{ij} \text{ si } i \neq r\\
+                cA_{ij} \text{ si } i = r
+            \end{cases}\\
+            &\text{Veamos }(EA)_{ij}=\sum_{k=1}^{m}E_{ik}A_{kj}
+            \text{ (si $i \neq k \Longrightarrow E_{ik}=0$)}\\
+            &= E_{ii}A_{ij}=
+            \begin{cases}
+                A_{ij} \text{ si } i \neq r\\
+                cA_{ij} \text{ si } i = r
+            \end{cases}\\
+        \end{align*}
+        \item \underline{Caso $e_{r,s}$}:
+        \begin{align*}
+            &\text{Sabemos que }(e(A))_{ij}=
+            \begin{cases}
+                A_{ij} \text{ si } i \neq r,s\\
+                A_{sj} \text{ si } i = r\\
+                A_{rj} \text{ si } i = s
+            \end{cases}\\
+            &(EA)_{ij}=\sum_{k=1}^{m} E_{ik}A_{kj}
+            \text{ , donde } E_{ik}=
+            \begin{cases}
+                1 \text{ si } i=k \vee i=r,s \vee k=r,s\\
+                0 \text{ caso contrario}
+            \end{cases}\\
+            &\text{Veamos $(EA)_{ij}$ en cada caso:}
+            \begin{cases}
+                \text{si } i \neq r,s \Longrightarrow (EA)_{ij} = A_{ij}\\
+                \text{si } i=r \Longrightarrow (EA)_{ij} = E_{is}A_{sj} = A_{sj}\\
+                \text{si } i=s \Longrightarrow (EA)_{ij} = E_{ir}A_{rj} = A_{rj}
+            \end{cases}
+        \end{align*}
+        \item \underline{Caso $e_{r,s}^c$}:
+        \begin{align*}
+            &\text{Sabemos que } e(A)_{ij}=
+            \begin{cases}
+                A_{ij} \text{ si } i \neq r\\
+                A_{rj} + cA_{sj} \text{ si } i=r
+            \end{cases}\\
+            &(EA)_{ij}=\sum_{k=1}^{m} E_{ik}A_{kj}
+            \text{ , donde } E_{ik}=
+            \begin{cases}
+                1 \text{ si } i=k\\
+                c \text{ si } i=r \wedge j=s\\
+                0 \text{ caso contrario}
+            \end{cases}\\
+        \end{align*}
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sean $A,B \in \mathbb{K}^{n\times n}$:
+    \begin{enumerate}
+        \item Si $A$ es inversible $\Longrightarrow A^{-1}$ tambien lo es y $(A^{-1})^{-1}=A$.
+        \item Si $A,B$ son inversibles $\Longrightarrow AB$ es inversible y $(AB)^{-1}=B^{-1}A^{-1}$. 
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $A \cdot A^{-1} = A^{-1} \cdot A = Id \Longrightarrow A^{-1}$ inversible y $(A^{-1})^{-1}$ es $A$.
+        \item $(AB)\cdot (B^{-1}A^{-1})=A(BB^{-1})A^{-1} = A(Id)A^{-1}=AA^{-1}=Id$.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\begin{theorem}
+    Toda matriz elemental $E$ es inversible.
+\end{theorem}
+\begin{proof}
+    Sea $e$ la operacion elemental por fila correspondiente a $E$ y sea $e^{\prime}$ la operacion elemental inversa
+    (sabemos que existe por teorema). Por lo tanto sea $E^{\prime}=e^{\prime}(Id)$
+    \begin{align*}
+        &Id=e^{\prime}(e(Id))=e^{\prime}(E)=E^{\prime}E\\
+        &Id=e(e^{\prime}(Id))=e(E^{\prime})=EE^{\prime}\\
+        &\Longrightarrow E \text{ es inversible y su inversa es } E^{\prime}
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    Sea $A \in\mathbb{K}^{n\times n}$ entonces son equivalentes:
+    \begin{enumerate}
+        \item $A$ es inversible.
+        \item $A$ es equivalente por filas a la $Id$.
+        \item $A$ es producto de matrices elementales.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $[1 \Longrightarrow 2]$ Sea $R$ la MERF $\sim A \Longrightarrow$ existen matrices elementales
+        $E_1, \dots ,E_k$ talque $R=E_k\cdots E_2E_1A$. Como las matrices elementales $E_j$ y $A$ son inversibles
+        $\Longrightarrow R$ tambien lo es $\Longrightarrow R$ no tiene filas nulas por lo tanto $R=Id$.
+        \item $[2 \Longrightarrow 3]$ Si $A \sim Id \Longrightarrow Id \sim A \Longrightarrow$ existen P productos
+        de matrices elementales talque $A = P \cdot Id = E_1E_2 \cdots E_k \cdot Id$.
+        \item $[3 \Longrightarrow 1]$ Supongamos $A=E_1 \cdots E_k$ donde $E_j$ es una matriz elemental. Como cada
+        $E_j$ es inversible y el producto de matrices inversibles tambien lo es $\Longrightarrow$ A es inversible.
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sean $A,B \in\mathbb{K}^{m\times n}$. Entonces $B$ es equivalente por filas a $A \iff \exists$ $P$ matriz inversible
+    $m \times m$ talque $B=P \cdot A$  
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $(\Longrightarrow):$ Si $B \sim A$ sabemos que $B=E_kE_{k-1}\cdots E_1$ y como cada $E_i$ es inversible
+        el producto de matrices inversibles tambien lo es.
+        \item $(\Longleftarrow):$ Sea $P$ inversible talque $B=PA$ como $P$ es producto de matrices elementales
+        $\Longrightarrow B=E_k \cdots E_1 A \Longrightarrow$ $B$ se obtiene de $A$ haciendo operaciones elementales
+        $\Longrightarrow B \sim A$.  
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sea $A\in\mathbb{K}^{n\times n}$. Entonces son equivalentes: 
+    \begin{enumerate}
+        \item $A$ es inversible.
+        \item El sistema $Ax=0$ tiene una unica solucion (la trivial).
+        \item $\forall \: b \in\mathbb{K}^{n\times 1}$ el sistema no-homogeneo $Ax=b$ tiene una unica solucion.
+    \end{enumerate}
+\end{theorem}
+\newpage
+\begin{proof}
+    \begin{itemize}
+        \item $[1 \iff 2]$ Sabemos que $A$ es inversible $\iff A \sim Id \iff$ el sistema $Ax=0$ tiene
+        como unica solucion la trivial.
+        \item $[1 \Longrightarrow 3]$ Sea $b \in\mathbb{K}^{n\times 1}$ , como $A$ es inversible $\Longrightarrow$
+        $\exists A^{-1}$. Por lo tanto sea $x_0= A^{-1}b \in\mathbb{K}^{n\times 1}$ $\Longrightarrow Ax_0=A(A^{-1}b)=b$.\\
+        Veamos que es unica, para eso supongamos que existe otra solucion $x_1 \Longrightarrow Ax_1=b$
+        $\Longrightarrow Ax_1=b=Ax_0$ ahora multiplicamos por la inversa $\Longrightarrow A^{-1}Ax_0=A^{-1}Ax_1$
+        $\Longrightarrow x_0=x_1$
+        \item $[3 \Longrightarrow 2]$ Como tiene solucion para todo $b$ tomo $b=0$ por lo tanto, obviamente, tiene una unica
+        solucion por hipotesis. 
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\begin{theorem}
+    Si $W \subseteq V$ y $W\neq \emptyset$. Entonces $W$ es un $\mathbb{K}-$subespacio vectorial de $V$ $\iff \forall v,w \in W$
+    y $\forall c \in \mathbb{K}$ el vector $[c \cdot v + w] \in W$ 
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $(\Longrightarrow):$ Si $W$ es un subespacio vectorial y $c \in \mathbb{K}$ , $v,w \in W \Longrightarrow$
+        $c \cdot v \in W \Longrightarrow c \cdot v + w \in W$
+        \item $(\Longleftarrow):$ Supongamos que $\forall v,w \in W$ y  $\forall c \in \mathbb{K} : c \cdot v + w \in W$ veamos contiene
+        al $\vec{0}$, que es cerrado para la suma y el producto por escalar.
+        \begin{enumerate}
+            
+            \item Como $W \neq \emptyset \Longrightarrow \exists w \in W \Longrightarrow (-1) \cdot w + (1) \cdot w \in W$
+            $\Longrightarrow \vec{0} \in W$.
+            \item Tomamos $c=1$ por lo tanto $(1) \cdot v + w = v + w \in W$ por lo tanto la suma esta bien definida.
+            \item Como $\vec{0} \in W$ tomamos $w=\vec{0}$ por lo tanto $c \cdot v + \vec{0} = c \cdot v \in W$
+            entonces el producto esta bien definido.
+        \end{enumerate}
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sea $V$ un $\mathbb{K}-$espacio vectorial. Entonces la interseccion de subespacios de $V$ es un subespacio vectorial de $V$.
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \text{Sea $\{ W_i \}_{i \in I}$ , donde $W_i$ es un subespacio vectorial de V. Entonces sea } W = \bigcap_{i \in I}W_i.
+    \end{align*}
+    Para ver que $W$ es un subespacio veamos que si $v,w \in W$ , $c \in \kk \ida c \cdot v + w \in W$.\\
+    Si $v,w \in W \ida v,w \in W_i$ para todo $i \in I$ y como todo $W_i$ es un subespacio $\ida c \cdot v + w \in W_i$
+    $\ida c \cdot v + w \in W$.
+\end{proof}
+
+\end{document}
