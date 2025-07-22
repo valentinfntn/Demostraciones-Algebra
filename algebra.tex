@@ -273,4 +273,19 @@
     $\ida c \cdot v + w \in W$.
 \end{proof}
 
+\begin{theorem}
+    Sea $V$ un $\kk-$espacio vectorial y sean $v_1, \dots , v_k \in V$.\\
+    Entonces $W=\{ c_1v_1+ \dots + c_kv_k | c_i \in \kk\}$ = Conjunto de todas la combinaciones lineales,
+    es un subespacio vectorial de $V$.
+\end{theorem}
+\begin{proof}
+    Tomemos $v,w \in W$ , $c \in \kk$ veamos $c \cdot v + w \in W$.
+    \begin{align*}
+        &\text{Sean } v= c_1v_1+ \dots c_kv_k \text{ y } w = d_1v_1 + \dots d_kv_k \ida \\
+        &c \cdot v + w = (c \cdot c_1v_1+ \dots c \cdot c_kv_k) + (d_1v_1 + \dots d_kv_k)\\
+        &= (c \cdot c_1 + d_1)v_1 + \dots (c \cdot c_k + d_k)v_k \\
+        &\ida c \cdot v + w \text{ es una combinacion lineal, por lo tanto} \in W
+    \end{align*}
+\end{proof}
+
 \end{document}
