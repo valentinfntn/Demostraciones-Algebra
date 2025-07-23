@@ -288,4 +288,41 @@
     \end{align*}
 \end{proof}
 
+\begin{theorem}
+    Sea $V$ un $\kk-$espacio vectorial y sea $S \subseteq V$ no vacio $\ida$\\
+    $\langle S \rangle = \bigcap_{i \in I} Wi$ (donde $W_i$ subespacio y $S \subseteq W_i$). ie:
+    El subespacio generado por $S$ coincide con la interseccion de todos los subespacios que contienen a S.
+\end{theorem}
+\newpage
+\begin{proof}
+    Llamemos $W_1= \langle S \rangle$ y $W_2= \bigcap \{ W_i : W_i \text{ subespacio, }  S \subseteq W_i\}$
+    queremos ver que $W_1$ y  $W_2$ son iguales. Para eso veamos la doble contencion.
+    \begin{itemize}
+        \item $(W_1 \subseteq W_2):$ Sea $v \in W_1$, para ver que $v \in W_2$, sea $W$ un subespacio que contiene a
+        $S \ida$ contiene a cualquier combinacion lineal de elementos de $S$.\\
+        Si $v \in W_1 \ida v= c_1v_1 + \dots c_kv_k$ con $v_i \in S$ y $c_i \in \kk$ (como $S \subseteq W \ida v_i \in W$).
+        Como $W$ y como la interseccion de todo subespacio de $W$ tambien lo es $\ida v \in W_2$.
+        \item $(W_2 \subseteq W_1):$ Como $W_1= \langle S \rangle$ es un subespacio y contiene a $S$ es en particular uno
+        de los subespacios que se interseca en $W_2$.
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sea $V$ un $\kk-$espacio vectorial y sean $v_1,\dots ,v_r \in V$ tales que $\langle v_1,\dots ,v_r \rangle = V \ida$
+    Todo conjunto L.I. de $V$ es finito y no puede tener mas de r elementos.
+\end{theorem}
+\begin{proof}
+    Veamos que cualquier conjunto de mas de $r$ elementos es L.D. , sea $S=\{w_1, \dots ,w_s\} $ con $s>r$ , con cada
+    $w_j \in \langle v_1,\dots ,v_r \rangle \ida \exists a_{ij} \in \kk$ tal que $w_j = \sum_{i=1}^{r} a_{ij}v_i$.
+    Por lo tanto si vemos como matriz a cada $w_j$ escrito como combinacion lineal tendremos una matriz $A \in \kk^{r \times s}$.
+    Si miramos el sistema $Ax=0$ como $r<s$ sabemos que tiene soluciones no triviales.
+    Es decir $\exists x \neq \vec{0}$ talque $x_1w_1+ \dots x_sw_s = 0$.
+    \begin{align*}
+        &\sum_{j=1}^{s} x_j w_j = \sum_{j=1}^{s} x_j \sum_{i=1}^{r} a_{ij} v_i = \sum_{i=1}^{r} (\sum_{j=1}^{s} x_j a_{ij}) v_i =0
+    \end{align*}
+    Por lo tanto $\exists$ combinacion lineal con escalares no todos nulos, tales que $x_1+w_1 + \dots x_s+w_s=0$\\
+    $\ida \{w_1,\dots ,w_s\}$ es L.D.
+\end{proof}
+
+
 \end{document}
