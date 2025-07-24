@@ -13,12 +13,8 @@
 \addtolength{\topmargin}{-.50in}
 
 \newtheorem{theorem}{Teorema}
+\newtheorem{proposition}{Proposicion}[theorem]
 \newenvironment{proof}{\noindent{\bf Prueba:}}{$\hfill \Box$ \vspace{10pt}}  
-
-\begin{document}
-
-\title{Demostraciones Algebra}
-\maketitle
 
 \newcommand{\iSection}[1]{
   \phantomsection
@@ -29,9 +25,24 @@
 }
 \newcommand{\ida}{\Longrightarrow}
 \newcommand{\vuelta}{\longleftarrow}
+\newcommand{\base}{\mathcal{B}}
+
+
+\begin{document}
+
+\newcommand{\W}[1]{\text{$W_{#1}$}}
+\newcommand{\mtx}[2]{\mathbb{K}^{#1 \times #2}}
+\newcommand{\espvec}{\text{ $\mathbb{K}-$espacio vectorial }}
+\newcommand{\espgen}[1]{\langle #1 \rangle}
+\newcommand{\incluye}[2]{#1 \subseteq #2}
+\newcommand{\conjunto}[1]{\text{$\{ {#1} \}$}}
+\newcommand{\li}{L.I.}
+
+\title{Demostraciones Algebra}
+\maketitle
 
 \begin{theorem}
-    Sean $A,B \in \mathbb{K}^{m\times n}$  matrices equivalentes por filas, entonces el sistema
+    Sean $A,B \in \mtx{m}{n}$  matrices equivalentes por filas, entonces el sistema
     de ecuaciones $Ax=0$ y $Bx=0$ tienen exactamente las mismas soluciones. 
 \end{theorem}
 \begin{proof}
@@ -53,7 +64,7 @@
 \end{proof}
 
 \begin{theorem}
-    Sea $A \in \mathbb{K}^{m\times n}$ con $m<n \Longrightarrow$ el sistema $Ax=0$
+    Sea $A \in \mtx{m}{n}$ con $m<n \Longrightarrow$ el sistema $Ax=0$
     tiene soluciones no triviales.
 \end{theorem}
 \begin{proof}
@@ -81,19 +92,19 @@
 \begin{theorem}
     Propiedades de la multiplicacion de matrices:
     \begin{enumerate}
-        \item $A \in \mathbb{K}^{m\times n}, B \in \mathbb{K}^{n\times p},C \in \mathbb{K}^{p\times q}$
+        \item $A \in \mtx{m}{n}, B \in \mathbb{K}^{n\times p},C \in \mathbb{K}^{p\times q}$
         $\Longrightarrow (AB)C=A(BC)$.
-        \item $A \in \mathbb{K}^{m\times n} \Longrightarrow Id_mA = Id_nA = A$.
-        \item $A,A^\prime \in \mathbb{K}^{m\times n}, B,B^\prime \in \mathbb{K}^{n\times p} \Longrightarrow$
+        \item $A \in \mtx{m}{n} \Longrightarrow Id_mA = Id_nA = A$.
+        \item $A,A^\prime \in \mtx{m}{n}, B,B^\prime \in \mathbb{K}^{n\times p} \Longrightarrow$
         $(A+A^\prime)B = AB+A^\prime B$ y $A(B+B^\prime) = AB+AB^\prime$.
-        \item $A \in \mathbb{K}^{m\times n}, B \in \mathbb{K}^{n\times p},\lambda \in \mathbb{K}$
+        \item $A \in \mtx{m}{n}, B \in \mathbb{K}^{n\times p},\lambda \in \mathbb{K}$
         $\Longrightarrow \lambda \cdot (AB) = (\lambda A)B= A(\lambda B)$ 
     \end{enumerate}
 \end{theorem}
 \newpage
 \begin{theorem}
     Sea $e$ una operacion elemental por filas y sea $E=e(Id)$ la matriz elemental asociada.
-    Entonces para toda $A \in \mathbb{K}^{n\times n}$ se cumple que $e(A)=E \cdot A$. 
+    Entonces para toda $A \in \mtx{n}{n}$ se cumple que $e(A)=E \cdot A$. 
 \end{theorem}
 \begin{proof}
     Tenemos que el elemento $i,j$ de $e(A)$ es el mismo que el de la matriz $EA$ para cada
@@ -154,7 +165,7 @@
 \end{proof}
 
 \begin{theorem}
-    Sean $A,B \in \mathbb{K}^{n\times n}$:
+    Sean $A,B \in \mtx{n}{n}$:
     \begin{enumerate}
         \item Si $A$ es inversible $\Longrightarrow A^{-1}$ tambien lo es y $(A^{-1})^{-1}=A$.
         \item Si $A,B$ son inversibles $\Longrightarrow AB$ es inversible y $(AB)^{-1}=B^{-1}A^{-1}$. 
@@ -182,7 +193,7 @@
     \end{align*}
 \end{proof}
 \begin{theorem}
-    Sea $A \in\mathbb{K}^{n\times n}$ entonces son equivalentes:
+    Sea $A \in\mtx{n}{n}$ entonces son equivalentes:
     \begin{enumerate}
         \item $A$ es inversible.
         \item $A$ es equivalente por filas a la $Id$.
@@ -202,7 +213,7 @@
 \end{proof}
 
 \begin{theorem}
-    Sean $A,B \in\mathbb{K}^{m\times n}$. Entonces $B$ es equivalente por filas a $A \iff \exists$ $P$ matriz inversible
+    Sean $A,B \in\mtx{m}{n}$. Entonces $B$ es equivalente por filas a $A \iff \exists$ $P$ matriz inversible
     $m \times m$ talque $B=P \cdot A$  
 \end{theorem}
 \begin{proof}
@@ -216,7 +227,7 @@
 \end{proof}
 
 \begin{theorem}
-    Sea $A\in\mathbb{K}^{n\times n}$. Entonces son equivalentes: 
+    Sea $A\in\mtx{n}{n}$. Entonces son equivalentes: 
     \begin{enumerate}
         \item $A$ es inversible.
         \item El sistema $Ax=0$ tiene una unica solucion (la trivial).
@@ -262,7 +273,7 @@
 \end{proof}
 
 \begin{theorem}
-    Sea $V$ un $\mathbb{K}-$espacio vectorial. Entonces la interseccion de subespacios de $V$ es un subespacio vectorial de $V$.
+    Sea $V$ un \espvec. Entonces la interseccion de subespacios de $V$ es un subespacio vectorial de $V$.
 \end{theorem}
 \begin{proof}
     \begin{align*}
@@ -274,7 +285,7 @@
 \end{proof}
 
 \begin{theorem}
-    Sea $V$ un $\kk-$espacio vectorial y sean $v_1, \dots , v_k \in V$.\\
+    Sea $V$ un \espvec y sean $v_1, \dots , v_k \in V$.\\
     Entonces $W=\{ c_1v_1+ \dots + c_kv_k | c_i \in \kk\}$ = Conjunto de todas la combinaciones lineales,
     es un subespacio vectorial de $V$.
 \end{theorem}
@@ -287,5 +298,157 @@
         &\ida c \cdot v + w \text{ es una combinacion lineal, por lo tanto} \in W
     \end{align*}
 \end{proof}
+
+\begin{theorem}
+    Sea $V$ un \espvec de dimension finita y $W$ subespacio de $V$. Todo subconjunto \li de $W$ es
+    finito y se puede completar a una base. 
+\end{theorem}
+\begin{proof}
+    Si $S_0 \subseteq W$ es \li $\ida S_0$ es un conjunto L.I de $V$ y si $dim(V)=n$, sabemos que $|S_0|\leq n$,
+    osea es finito. Queremos extenderlo a una base de la siguiente forma:
+    \begin{itemize}
+        \item Si $S_0$ genera $W$ ya es una base.
+        \item Si $S_0$ no genera $W \ida \exists w_1 \in W$ talque $w_1 \notin \espgen{S_0}$, vimos que si
+        agregamos algo que no esta en el espacio generado este conjunto sigue siendo \li\\
+        Repetimos este paso hasta algun $S_k = S_0 \cup w_1 \cup \cdots \cup w_k$ talque $\espgen{S_k} = W$.
+        Como este conjunto es por definicion \li y genera este es una base.  
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sea $V$ un \espvec, sea $S=\{ v_1, \dots ,v_m \}$ un conjunto de generadores de V. Entonces existe
+    $B \subseteq S$ que es una base de $V$. 
+\end{theorem}
+\begin{proof}
+    Vamos a definir inductivamente subconjuntos $G_j \subseteq S$ ($j=1,\dots,m$) que sean \li
+    \begin{itemize}
+        \item $(j=1):$
+        \begin{align*}
+            G_1=
+            \begin{cases}
+                \{v_1\} \quad si \quad v_1 \neq 0\\
+                \emptyset \quad si \quad v_1 = 0
+            \end{cases}
+            \ida G_1 \text{ es \li}
+        \end{align*}
+        \item $(j=2):$
+        \begin{align*}
+            G_2=
+            \begin{cases}
+                G_1 \cup {v_2} \quad si \quad v_2 \notin \espgen{G_1}\\
+                G_1 \quad\quad si \quad v_2 \in \espgen{G_1}
+            \end{cases}
+            \ida G_2 \text{ es \li en cualquier caso}
+        \end{align*}
+        \item $(j+1):$
+        \begin{align*}
+            G_{j+1}=
+            \begin{cases}
+                G_j \cup {v_{j+1}} \quad si \quad v_{j+1} \notin \espgen{G_j}\\
+                G_j \quad\quad si \quad v_{j+1} \in \espgen{G_j}
+            \end{cases}
+            \ida \text{ en ambos casos $G_{j+1}$ es \li}
+        \end{align*}
+    \end{itemize}
+    $\ida G_m$ es \li y $\espgen{G_m} = \{ v_1,\dots,v_m \} = V \ida \base = G_m \subseteq S$ y la dimension
+    de $V = |G_m|$.
+\end{proof}
+
+\begin{theorem}
+    Sean $\W{1} , \W{2}$ dos subespacios de $V$:
+    \begin{enumerate}
+        \item $\W{1} + \W{2}$ es un subespacio de $V$.
+        \item $\W{1} + \W{2}$ es el menor subespacio (respecto a la inclusion) que contiene a $\W{1}+\W{2}$.
+        \item Si $\{ v_i \}_{i \in I}$ es un conjunto de generadores de \W{1} y $\{ w_j \}_{j \in J}$ es un conjunto
+        de generadores de $\W{2} \ida \{ v_i \}_{i \in I} \cup \{ w_j \}_{j \in J}$ es un conjunto de generadores de $\W{1}+\W{2}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $\W{1} + \W{2} \neq \emptyset$ pues $\vec{0} \in \W{1}$ y $\vec{0} \in \W{2}\ida \vec{0}=\vec{0}+\vec{0} \in \W{1}+\W{2}$.
+        Sean $v_1,v_2 \in \W{1}+\W{2}$ queremos ver que $c \cdot v_1 + v_2 \in \W{1} + \W{2}$.
+        \begin{align*}
+            &v_1 = x_1 + y_1 \text{ , } v_2= x_2 + y_2 \text{ con } x_1,x_2 \in \W{1} \subseteq V
+            \text{ y } y_1,y_2 \in \W{2} \subseteq V\\
+            &\ida c \cdot v_1 + v_2 = c \cdot (x_1 + y_1) + (x_2 + y_2) = 
+            (cx_1 + x_2) \in  \W{1} + (cy_1 + y_2) \in \W{2}\\
+            &\ida c \cdot v_1 + v_2 \in \W{1} + \W{2}
+        \end{align*}
+        \item $\W{1} \subseteq \W{1} + \W{2}$ pues si $w_1 \in \W{1} \ida w_1 + \vec{0} \in \W{1}+\W{2}$ y del mismo modo con \W{2}.
+        Por lo tanto $\W{1} \cup \W{2} \subseteq \W{1} + \W{2}$, basta ver que es el menor subespacio que lo contiene.\\
+        Sea $U$ un subespacio de $V$ talque $\W{1} \cup \W{2} \subseteq U$, queremos ver que $\W{1} + \W{2} \subseteq U$.\\
+        Sea $v \in \W{1} + \W{2} \ida v=x+y$ con $x \in \W{1} \subseteq U$, $y \in \W{2} \subseteq U$ osea $v \in U$
+        $\ida \W{1} + \W{2} \subseteq U$.
+        \item $\{v_i\}_{i \in I}$ genera \W{1}, $\{w_j\}_{j \in J}$ genera $\W{2} \ida S=$
+        $\{v_i\}_{i \in I} \cup \{w_j\}_{j \in J}$ genera $\W{1} + \W{2}$.
+        \begin{align*}
+            &\text{Sea } v \in \W{1} + \W{2} \ida v=x+y \text{ con } x \in \W{1} , y \in \W{2}\\
+            &\ida x=\sum_{i \in I} \alpha_i v_i \: , \: y=\sum_{j \in J} \beta_j w_j
+            \quad (\text{ con } \alpha_i,\beta_j \in \kk)\\
+            &\ida v=x+y=\sum_{i \in I}\alpha_i v_i + \sum_{j \in J}\beta_j w_j\\
+            &\text{Por lo tanto $v$ es combinacion lineal de elementos de $S$}
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+\begin{theorem}
+    Sea $V$ un \espvec , sean $\W{1},\W{2}$ subespacios de $V$ y de dimension finita.\\
+    Entonces $\W{1}+\W{2}$ es un subespacio y $dim(\W{1}+\W{2}) = dim(\W{1}) + dim(\W{2}) - dim(\W{1} \cap \W{2})$
+\end{theorem}
+\begin{proof}
+    $\W{1}\cap\W{2}$ es un subespacio de \W{1} (y de \W{2}) por lo tanto es de dimension finita.
+    Sea \conjunto{u_1,\dots,u_k} base de $\W{1} \cap \W{2} \ida$ \conjunto{u_1,\dots,u_k} es \li en \W{1}
+    $\ida$ se puede extender a una base de \W{1}, analogamente con \W{2}.\\
+    Osea existen \conjunto{v_1,\dots,v_n} $\subseteq$ \W{1} tales que \conjunto{u_1,\dots,u_k,v_1,\dots,v_n}
+    es una base de \W{1}. De la misma forma existen \conjunto{w_1,\dots,w_m} $\subseteq$ \W{2} tales que
+    \conjunto{u_1,\dots,u_k,w_1,\dots,w_m} es base.\\
+    $\ida \W{1}+\W{2}$ es generado por $\base= \conjunto{u_1,\dots,u_k,v_1,\dots,v_n,w_1,\dots,w_m}$
+    es $\base_1 \cup \base_2$. Veamos que este conjunto es \li
+    \begin{align*}
+        &\text{Si } \sum_{i=1}^{k} a_i u_i + \sum_{i=1}^{n} b_i v_i + \sum_{i=1}^{m} c_i w_i = 0\\
+        &\ida \sum_{i=1}^{k} a_i u_i + \sum_{i=1}^{n} b_i v_i = \underline{- \sum_{i=1}^{m} c_i w_i} \in \W{1}\cap\W{2}\\
+        &\text{Como \conjunto{u_1,\dots,u_k} es base de } \W{1}\cap\W{2} \ida - \sum_{i=1}^{m} c_i w_i = \sum_{i=1}^{k} d_iu_i\\
+        &\text{Reemplazando } \sum_{i=1}^{k} a_i u_i + \sum_{i=1}^{n} b_i v_i + \sum_{i=1}^{k} (-d_i)u_i = 0\\
+        &\sum_{i=1}^{k} (a_i-d_i)u_i + \sum_{i=1}^{n} b_i v_i = 0
+    \end{align*}
+    Como \conjunto{u_1,\dots,u_k,v_1,\dots,v_n} es base de \W{1} el conjunto es $\li\ida a_i=d_i$ y $b_i=0 ,\:\forall\: i$.\\
+    Volviendo a la sumatoria con este resultado sabemos que:
+    \begin{align*}
+        \sum_{i=1}^{k} a_i u_i + \sum_{i=1}^{m} c_i w_i = 0
+    \end{align*}
+    Como \conjunto{u_1,\dots,u_k,w_1,\dots,w_m} es base de \W{2} el conjunto es \li $\ida$ todos los escalares son 0.
+    Osea $\beta = \conjunto{u_1,\dots,u_k,v_1,\dots,v_n,w_1,\dots,w_m}$ es \li y por lo tanto es base de \W{1}+\W{2}
+    \begin{align*}
+        &\ida dim(\W{1}+\W{2})<\infty \text{ y } dim(\W{1}+\W{2})=k+n+m\\
+        &dim(\W{1})=k+n \text{ , } dim(\W{2})=k+m \text{ , } dim(\W{1}\cap\W{2})=k\\
+        &\ida dim(\W{1}+\W{2}) = dim(\W{1})+dim(\W{2})-dim(\W{1}\cap\W{2})
+    \end{align*}
+\end{proof}
+
+\begin{proposition}
+    Si $V=\W{1} \oplus \W{2} \ida$ para cada $v\in V$ : $\exists$ unicos elementos $x \in \W{1} , y \in\W{2}$
+    tales que $v=x+y$.
+\end{proposition}
+\begin{proof}
+    Como $V=\W{1}+\W{2}$ sabemos que existen $w_1 \in \W{1}, w_2 \in \W{2}$ tales que $v=w_1=w_2$.
+    Si ademas $v=u_1+u_2 \ida \vec{0}= v-v= (w_1+w_2)-(u_1+u_2)=(w_1-u_1)+(w_2-u_2)$
+    $\ida w_1-u_1 = w_2-u_2 \in \W{1}\cap\W{2}= \conjunto{\vec{0}}$ (pues es suma directa) $\ida w_1=u_1 , w_2=u_2$.
+\end{proof}
+
+\begin{theorem}
+    Sean \W{1},\W{2} subespacios vectoriales de $V$ y sean $\base_1,\base_2$ bases de \W{1} y \W{2}.\\
+    Entonces son equivalentes:
+    \begin{enumerate}
+        \item $V=\W{1}\oplus\W{2}$.
+        \item $\base = \base_1 \cup \base_2$ es una base de $V$.
+    \end{enumerate}
+\end{theorem}
+
+
+
+
+
+
+
+
 
 \end{document}
