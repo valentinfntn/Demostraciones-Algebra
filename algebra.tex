@@ -431,7 +431,7 @@
 \begin{proof}
     Como $V=\W{1}+\W{2}$ sabemos que existen $w_1 \in \W{1}, w_2 \in \W{2}$ tales que $v=w_1=w_2$.
     Si ademas $v=u_1+u_2 \ida \vec{0}= v-v= (w_1+w_2)-(u_1+u_2)=(w_1-u_1)+(w_2-u_2)$
-    $\ida w_1-u_1 = w_2-u_2 \in \W{1}\cap\W{2}= \conjunto{\vec{0}}$ (pues es suma directa) $\ida w_1=u_1 , w_2=u_2$.
+    $\ida w_1-u_1 = w_2-u_2 \in \W{1}\cap\W{2}= \conjunto{0}$ (pues es suma directa) $\ida w_1=u_1 , w_2=u_2$.
 \end{proof}
 
 \begin{theorem}
@@ -442,7 +442,30 @@
         \item $\base = \base_1 \cup \base_2$ es una base de $V$.
     \end{enumerate}
 \end{theorem}
-
+\begin{proof}
+    \begin{itemize}
+        \item $[1 \ida 2]:$ Asumimos que $V=\W{1}\oplus\W{2} \ida \base = \base_1 \cup \base_2$ es un conjunto de generadores de
+        $\W{1}+\W{2}$ bastar ver que es \li\\
+        Sabemos que $dim(V)=dim(\W{1}\oplus\W{2})=dim(\W{1})+dim(\W{2})-dim(\conjunto{0})$
+        \begin{align*}
+            &\sum_{i \in I} a_i v_i + \sum_{j \in J} b_j w_j = 0 \ida
+            \underset{\in \W{1}}{\sum_{i \in I} a_i v_i} = \underset{\in \W{2}}{-\sum_{j \in J} b_j w_j} \ida \W{1}\cap\W{2}=\conjunto{0}\\
+            &\sum_{i \in I} a_i v_i =  \vec{0} \text{ , } \sum_{j \in J} b_j w_j = \vec{0}\\
+            &\ida a_i=0,b_j=0 \text{ $\forall i \in I, \forall j \in J$ pues ambos $v_i,w_j$ son base y por lo tanto son } \li
+        \end{align*}
+        \item $[2 \ida 1]:$ Asumimos que $\base=\base_1 \cup \base_2$  base de $V \ida V=\W{1}+\W{2}$ pues sabemos que:
+        \begin{align*}
+            v=\sum_{i \in I}a_i v_i + \sum_{j \in J}b_j w_j
+        \end{align*}
+        Necesitamos ver que $\W{1}\cap\W{2}=\conjunto{0}$ para ver que la suma es directa. Sea $v\in\W{1}\cap\W{2}:$
+        \begin{align*}
+            &\ida v=\sum_{i \in I}a_i v_i = \sum_{j \in J}b_j w_j\\
+            &\ida 0=\sum_{i \in I}a_i v_i - \sum_{j \in J}b_j w_j\\
+            &(\text{como ambos conjuntos son L.I. esto solo pasa si } a_i=0 \:\forall i \in I,b_j=0 \:\forall j \in J)\\
+            &\ida v=0\ida \W{1}\cap\W{2}=\conjunto{0}
+        \end{align*}
+    \end{itemize}
+\end{proof}
 
 
 
