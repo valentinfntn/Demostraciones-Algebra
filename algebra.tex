@@ -576,4 +576,94 @@ def
         \ida \dm{\N}+\dm{\I}=k+(n-k)=n=\dm{V}
     \end{align*}
 \end{proof}
+
+\begin{definition}
+\mbox{}
+    \begin{itemize}
+        \item El Rango Fila (A) = \dm{\text{espacio fila de A}}
+        \item El Rango Columna (A) = \dm{\text{espacio columna de A}}
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    Sea $A \in \mtx{m}{n}$ Entonces: Rango fila de A = Rango columna de A
+\end{theorem}
+\begin{proof}
+    Sea $T:\K^{n}\rightarrow\K^{m}$ la \tl definida por $\T{x}=A \cdot x$ , $\N=\conjunto{x \in \K^n : Ax=0}$.\\
+    Sabemos que $A$ se puede reducir a una MERF $R$.
+    \begin{align*}
+        &\ida \text{espacio fila de A = espacio fila de R}\\
+        &\ida \dm{\text{espacio fila de A}} = k \text{ (cantidad de filas no nulas)}\\
+        &\ida \dm{\N}=n-k \text{ , Rango Fila (A) = } k\\ 
+        &\ida \dm{\K^n}=n = \dm{\N}+ \text{ Rango Fila (A)}
+    \end{align*}
+    Por otra parte $T:\K^{n}\rightarrow\K^{m}$ , $x \rightarrow Ax$ entonces \I es generada por las columnas de A:
+    \begin{align*}
+        &\K^m \ida Ax =
+        \begin{pmatrix} a_{11} \cdots a_{1n} \\ \vdots\quad\ddots\quad \vdots \\ a_{m1} \cdots a_{mn} \end{pmatrix}
+        \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} =
+        x_1 \begin{pmatrix} a_{11} \\ \vdots \\ a_{m1} \end{pmatrix}+
+        x_2 \begin{pmatrix} a_{12} \\ \vdots \\ a_{m2} \end{pmatrix}+
+        \cdots +
+        x_n \begin{pmatrix} a_{1n} \\ \vdots \\ a_{mn} \end{pmatrix}\\
+        & \T{e_j}= \begin{pmatrix} a_{1j} \\ \vdots \\ a_{mj} \end{pmatrix}
+        \text{ siendo $e_j$ el vector canonico que devuelve la columna $j$}\\
+        \\
+        &\ida \conjunto{e_1,e_2,\dots,e_{n-1},e_n} \text{ es base de } \K^n
+        \ida \conjunto{\T{e_1},\dots,\T{e_n}} \text{ genera }\I\\
+        \\
+        &\ida \dm{\I}=\dm{\text{espacio columna de A}}=\text{Rango Columna (A)}
+    \end{align*}
+    Ahora el teorema dice que $\dm{\K^n}=\dm{\N}+\text{Rango Columna (A)}$. Pero antes vimos que
+    $\dm{\K^n}=\dm{\N}+\text{Rango Columna (A)} \ida$ \underline{Rango Fila (A)= Rango Columna (A)}
+\end{proof}
+\begin{proposition}
+    \deftl\\
+    Entonces:
+    \begin{itemize}
+        \item T es inyectiva $\iff \N = \conjunto{0} \iff$ nulidad(T) = 0
+        \item T es sobreyectiva $\iff \I = W \iff$ rango(T) = \dm{W}
+    \end{itemize}
+\end{proposition}
+
+\begin{theorem}
+    \deftl\\
+    Entonces:
+    \begin{enumerate}
+        \item Si T es inyectiva y \conjunto{v_1,\dots,v_n} es \li en V
+        $\ida$ \conjunto{\T{v_1},\dots,\T{v_n}} es \li en W.
+        \item Si T es sobreyectiva y \conjunto{v_1,\dots,v_n} genera V $\ida$
+        \conjunto{\T{v_1},\dots,\T{v_n}} genera W.
+        \item En general si \conjunto{v_1,\dots,v_n} genera V $\ida$
+        \conjunto{\T{v_1},\dots,\T{v_n}} genera \I.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Sean $c_1,\dots,c_r \in \K$ tales que $c_1\T{v_1}+\cdots+c_r\T{v_r}=0$ (como T es lineal)\\
+        $\ida \T{c_1v_1+\cdots+c_rv_r}=0 \ida [c_1v_1+\cdots+c_rv_r] \in \N=\conjunto{0}$ (por ser inyectiva)\\
+        $\ida c_1v_1+\cdots+c_rv_r=0 \ida c_1=0,\cdots,c_r=0$.
+        \item Caso particular de $(3)$ donde $\I=W$.
+        \item Sea $w \in \I \ida \exists v \in V$ talque $w=\T{v}$ , como \conjunto{v_1,\cdots,v_s} genera $V$
+        \begin{align*}
+            &\ida v= c_1v_1+\cdots+c_sv_s \quad \text{(con $c_i \in \K$)}\\
+            &\ida w=\T{v}=\T{c_1v_1+\cdots+c_sv_s}=c_1\T{v_1}+\cdots+c_s\T{v_s}\\
+            &\ida w \in \espgen{\conjunto{\T{v_1},\cdots,\T{v_s}}} \quad \text{(esta en el espacio generado)}\\
+            &\ida \I \subseteq \espgen{\conjunto{\T{v_1},\cdots,\T{v_s}}} \subseteq \I\\
+            &\ida \underline{\I=\espgen{\conjunto{\T{v_1},\cdots,\T{v_s}}}}  
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \deftl\\
+    Entonces son equivalentes:
+    \begin{enumerate}
+        \item T es un isomorfismo.
+        \item T es inyectiva.
+        \item T es sobreyectiva.
+        \item Si \conjunto{v_1,\cdots,v_n} es una base de V $\ida$ \conjunto{\T{v_1},\cdots,\T{v_n}} es una base de W.
+    \end{enumerate}
+\end{theorem}
+
 \end{document}
