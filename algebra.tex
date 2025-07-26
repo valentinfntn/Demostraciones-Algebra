@@ -14,13 +14,14 @@
 
 \newtheorem{theorem}{Teorema}
 \newtheorem{proposition}{Proposicion}[theorem]
+\newtheorem{definition}{Definicion}
 \newenvironment{proof}{\noindent{\bf Prueba:}}{$\hfill \Box$ \vspace{10pt}}  
 
 \newcommand{\iSection}[1]{
   \phantomsection
   \addcontentsline{toc}{section}{#1}
 }
-\newcommand{\kk}{
+\newcommand{\K}{
     \mathbb{K}
 }
 \newcommand{\ida}{\Longrightarrow}
@@ -31,12 +32,23 @@
 \begin{document}
 
 \newcommand{\W}[1]{\text{$W_{#1}$}}
-\newcommand{\mtx}[2]{\mathbb{K}^{#1 \times #2}}
+\newcommand{\mtx}[2]{\text{$\mathbb{K}^{#1 \times #2}$}}
 \newcommand{\espvec}{\text{ $\mathbb{K}-$espacio vectorial }}
-\newcommand{\espgen}[1]{\langle #1 \rangle}
-\newcommand{\incluye}[2]{#1 \subseteq #2}
+\newcommand{\espgen}[1]{\text{$\langle #1 \rangle$}}
+\newcommand{\incluye}[2]{\text{$#1 \subseteq #2$}}
 \newcommand{\conjunto}[1]{\text{$\{ {#1} \}$}}
-\newcommand{\li}{L.I.}
+\newcommand{\li}{L.I.\:}
+\newcommand{\tl}{T.L.\:}
+\newcommand{\tq}{\text{ $|$ }}
+\newcommand{\T}[1]{\text{$T({#1})$}}
+\newcommand{\novacio}{\text{$\neq\emptyset$}\:}
+\newcommand{\cero}{\text{$\vec{0}$}}
+\newcommand{\deftl}{\text{Sean $V,W$ $\mathbb{K}-$espacio vectoriales, sea $T: V\rightarrow W$ transformacion lineal.}\:}
+\newcommand{\N}{\text{$Nu(T)$}\:}
+\newcommand{\I}{\text{$Im(T)$}\:}
+\newcommand{\dm}[1]{\text{$dim(#1)$}\:}
+\newcommand{\vc}[1]{\text{$v_{#1}$}}
+\newcommand{\wc}[1]{\text{$w_{#1}$}}
 
 \title{Demostraciones Algebra}
 \maketitle
@@ -149,7 +161,7 @@
         \item \underline{Caso $e_{r,s}^c$}:
         \begin{align*}
             &\text{Sabemos que } e(A)_{ij}=
-            \begin{cases}
+            \begin{cases}[within]
                 A_{ij} \text{ si } i \neq r\\
                 A_{rj} + cA_{sj} \text{ si } i=r
             \end{cases}\\
@@ -163,7 +175,7 @@
         \end{align*}
     \end{itemize}
 \end{proof}
-
+def
 \begin{theorem}
     Sean $A,B \in \mtx{n}{n}$:
     \begin{enumerate}
@@ -252,7 +264,7 @@
 \newpage
 
 \begin{theorem}
-    Si $W \subseteq V$ y $W\neq \emptyset$. Entonces $W$ es un $\mathbb{K}-$subespacio vectorial de $V$ $\iff \forall v,w \in W$
+    Si $W \subseteq V$ y $W\novacio$. Entonces $W$ es un $\mathbb{K}-$subespacio vectorial de $V$ $\iff \forall v,w \in W$
     y $\forall c \in \mathbb{K}$ el vector $[c \cdot v + w] \in W$ 
 \end{theorem}
 \begin{proof}
@@ -260,13 +272,13 @@
         \item $(\Longrightarrow):$ Si $W$ es un subespacio vectorial y $c \in \mathbb{K}$ , $v,w \in W \Longrightarrow$
         $c \cdot v \in W \Longrightarrow c \cdot v + w \in W$
         \item $(\Longleftarrow):$ Supongamos que $\forall v,w \in W$ y  $\forall c \in \mathbb{K} : c \cdot v + w \in W$ veamos contiene
-        al $\vec{0}$, que es cerrado para la suma y el producto por escalar.
+        al $\cero$, que es cerrado para la suma y el producto por escalar.
         \begin{enumerate}
             
-            \item Como $W \neq \emptyset \Longrightarrow \exists w \in W \Longrightarrow (-1) \cdot w + (1) \cdot w \in W$
-            $\Longrightarrow \vec{0} \in W$.
+            \item Como $W \novacio \Longrightarrow \exists w \in W \Longrightarrow (-1) \cdot w + (1) \cdot w \in W$
+            $\Longrightarrow \cero \in W$.
             \item Tomamos $c=1$ por lo tanto $(1) \cdot v + w = v + w \in W$ por lo tanto la suma esta bien definida.
-            \item Como $\vec{0} \in W$ tomamos $w=\vec{0}$ por lo tanto $c \cdot v + \vec{0} = c \cdot v \in W$
+            \item Como $\cero \in W$ tomamos $w=\cero$ por lo tanto $c \cdot v + \cero = c \cdot v \in W$
             entonces el producto esta bien definido.
         \end{enumerate}
     \end{itemize}
@@ -279,18 +291,18 @@
     \begin{align*}
         \text{Sea $\{ W_i \}_{i \in I}$ , donde $W_i$ es un subespacio vectorial de V. Entonces sea } W = \bigcap_{i \in I}W_i.
     \end{align*}
-    Para ver que $W$ es un subespacio veamos que si $v,w \in W$ , $c \in \kk \ida c \cdot v + w \in W$.\\
+    Para ver que $W$ es un subespacio veamos que si $v,w \in W$ , $c \in \K \ida c \cdot v + w \in W$.\\
     Si $v,w \in W \ida v,w \in W_i$ para todo $i \in I$ y como todo $W_i$ es un subespacio $\ida c \cdot v + w \in W_i$
     $\ida c \cdot v + w \in W$.
 \end{proof}
 
 \begin{theorem}
     Sea $V$ un \espvec y sean $v_1, \dots , v_k \in V$.\\
-    Entonces $W=\{ c_1v_1+ \dots + c_kv_k | c_i \in \kk\}$ = Conjunto de todas la combinaciones lineales,
+    Entonces $W=\{ c_1v_1+ \dots + c_kv_k | c_i \in \K\}$ = Conjunto de todas la combinaciones lineales,
     es un subespacio vectorial de $V$.
 \end{theorem}
 \begin{proof}
-    Tomemos $v,w \in W$ , $c \in \kk$ veamos $c \cdot v + w \in W$.
+    Tomemos $v,w \in W$ , $c \in \K$ veamos $c \cdot v + w \in W$.
     \begin{align*}
         &\text{Sean } v= c_1v_1+ \dots c_kv_k \text{ y } w = d_1v_1 + \dots d_kv_k \ida \\
         &c \cdot v + w = (c \cdot c_1v_1+ \dots c \cdot c_kv_k) + (d_1v_1 + \dots d_kv_k)\\
@@ -365,7 +377,7 @@
 \end{theorem}
 \begin{proof}
     \begin{enumerate}
-        \item $\W{1} + \W{2} \neq \emptyset$ pues $\vec{0} \in \W{1}$ y $\vec{0} \in \W{2}\ida \vec{0}=\vec{0}+\vec{0} \in \W{1}+\W{2}$.
+        \item $\W{1} + \W{2} \novacio$ pues $\cero \in \W{1}$ y $\cero \in \W{2}\ida \cero=\cero+\cero \in \W{1}+\W{2}$.
         Sean $v_1,v_2 \in \W{1}+\W{2}$ queremos ver que $c \cdot v_1 + v_2 \in \W{1} + \W{2}$.
         \begin{align*}
             &v_1 = x_1 + y_1 \text{ , } v_2= x_2 + y_2 \text{ con } x_1,x_2 \in \W{1} \subseteq V
@@ -374,7 +386,7 @@
             (cx_1 + x_2) \in  \W{1} + (cy_1 + y_2) \in \W{2}\\
             &\ida c \cdot v_1 + v_2 \in \W{1} + \W{2}
         \end{align*}
-        \item $\W{1} \subseteq \W{1} + \W{2}$ pues si $w_1 \in \W{1} \ida w_1 + \vec{0} \in \W{1}+\W{2}$ y del mismo modo con \W{2}.
+        \item $\W{1} \subseteq \W{1} + \W{2}$ pues si $w_1 \in \W{1} \ida w_1 + \cero \in \W{1}+\W{2}$ y del mismo modo con \W{2}.
         Por lo tanto $\W{1} \cup \W{2} \subseteq \W{1} + \W{2}$, basta ver que es el menor subespacio que lo contiene.\\
         Sea $U$ un subespacio de $V$ talque $\W{1} \cup \W{2} \subseteq U$, queremos ver que $\W{1} + \W{2} \subseteq U$.\\
         Sea $v \in \W{1} + \W{2} \ida v=x+y$ con $x \in \W{1} \subseteq U$, $y \in \W{2} \subseteq U$ osea $v \in U$
@@ -384,7 +396,7 @@
         \begin{align*}
             &\text{Sea } v \in \W{1} + \W{2} \ida v=x+y \text{ con } x \in \W{1} , y \in \W{2}\\
             &\ida x=\sum_{i \in I} \alpha_i v_i \: , \: y=\sum_{j \in J} \beta_j w_j
-            \quad (\text{ con } \alpha_i,\beta_j \in \kk)\\
+            \quad (\text{ con } \alpha_i,\beta_j \in \K)\\
             &\ida v=x+y=\sum_{i \in I}\alpha_i v_i + \sum_{j \in J}\beta_j w_j\\
             &\text{Por lo tanto $v$ es combinacion lineal de elementos de $S$}
         \end{align*}
@@ -430,7 +442,7 @@
 \end{proposition}
 \begin{proof}
     Como $V=\W{1}+\W{2}$ sabemos que existen $w_1 \in \W{1}, w_2 \in \W{2}$ tales que $v=w_1=w_2$.
-    Si ademas $v=u_1+u_2 \ida \vec{0}= v-v= (w_1+w_2)-(u_1+u_2)=(w_1-u_1)+(w_2-u_2)$
+    Si ademas $v=u_1+u_2 \ida \cero= v-v= (w_1+w_2)-(u_1+u_2)=(w_1-u_1)+(w_2-u_2)$
     $\ida w_1-u_1 = w_2-u_2 \in \W{1}\cap\W{2}= \conjunto{0}$ (pues es suma directa) $\ida w_1=u_1 , w_2=u_2$.
 \end{proof}
 
@@ -450,7 +462,7 @@
         \begin{align*}
             &\sum_{i \in I} a_i v_i + \sum_{j \in J} b_j w_j = 0 \ida
             \underset{\in \W{1}}{\sum_{i \in I} a_i v_i} = \underset{\in \W{2}}{-\sum_{j \in J} b_j w_j} \ida \W{1}\cap\W{2}=\conjunto{0}\\
-            &\sum_{i \in I} a_i v_i =  \vec{0} \text{ , } \sum_{j \in J} b_j w_j = \vec{0}\\
+            &\sum_{i \in I} a_i v_i =  \cero \text{ , } \sum_{j \in J} b_j w_j = \cero\\
             &\ida a_i=0,b_j=0 \text{ $\forall i \in I, \forall j \in J$ pues ambos $v_i,w_j$ son base y por lo tanto son } \li
         \end{align*}
         \item $[2 \ida 1]:$ Asumimos que $\base=\base_1 \cup \base_2$  base de $V \ida V=\W{1}+\W{2}$ pues sabemos que:
@@ -467,11 +479,101 @@
     \end{itemize}
 \end{proof}
 
+\newpage
+\begin{definition}
+    Dados V,W espacio vectoriales sobre $\K$.\\
+    Una transformacion lineal de V en W es una funcion, $T:V \rightarrow W$ que satisface:
+    \begin{itemize}
+        \item $T(v+w)=T(v)+T(w)$ \quad $\forall v,w \in V$
+        \item $T(c\cdot v)= c\cdot T(v)$ \quad $\forall v\in V, \forall c \in \K$
+    \end{itemize}
+    De esas propiedades se deducen las siguientes:
+    \begin{itemize}
+        \item $T(\cero_V)=\cero_W$
+        \item $T(-v)=-T(v)$ \quad $\forall v \in V$
+    \end{itemize}
+\end{definition}
 
+\begin{theorem}
+    Sean V,W \espvec , $T:V\rightarrow W$ una \tl
+    \begin{enumerate}
+        \item Si $\incluye{U}{V}$ es un subespacio de $V \ida T(U)$ es un subespacio de $W$.
+        \item Si $\incluye{Z}{W}$ es un subespacio de $W \ida T^{-1}(Z)=\conjunto{v \in V \tq T(w)\in Z}$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Sea $\T{U} = \conjunto{w \in W \tq \exists v \in U \text{ con } \T{v}=w} \novacio$ , veamos
+        que \T{U} es subespacio:
+        \begin{align*}
+            &\text{Como } \cero \in U \text{ (por ser subespacio) y } \T{\cero}=0 \ida \cero \in \T{U}\\
+            &\text{Sean } w_1,w_2 \in \T{U}: \ida \exists v_1,v_2 \in U \text{ tales que } w_1=\T{v_1},w_2=\T{v_2}\\
+            &\ida c\cdot w_1 + w_2 = c\T{v_1}+\T{V_2} = \T{c\cdot v_1 + v_2}\\
+            &\text{Como } c\cdot v_1+v_2 \in U \ida c\cdot w_1 + w_2 \in \T{U}
+        \end{align*}
+        \item $\cero \in T^{-1}(Z)$ pues $\T{0} = \cero \in Z$ por lo tanto $T^{-1}(Z) \novacio$.
+        Sean $v_1,v_2 \in T^{-1}(Z) , c \in \K$ veamos que $c\cdot v_1 + v_2 \in T^{-1}(Z)$:
+        \begin{align*}
+            &\T{c\cdot v_1+v_2}=c\T{v_1}+\T{v_2} \in defZ\\
+            &\ida c\cdot v_1+v_2 \in T^{-1}(Z)
+        \end{align*}
+    \end{enumerate}
+\end{proof}
 
+\begin{theorem}
+    \deftl\\
+    Entonces:
+    \begin{enumerate}
+        \item \N es un subespacio de V.
+        \item \I es un subespacio de W.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item
+        \begin{align*}
+            &\N\novacio \text{ , pues } \cero\in\N \text{ porque } \T{\cero}=\cero\\
+            &\text{Sean } v_1,v_2 \in \N , c \in\K\\
+            &\ida \T{cv_1+v_2}=c\T{v_1}+\T{v_2}=\cero \ida c\cdot v_1 + v_2 \in \N
+        \end{align*}
+        \item
+        \begin{align*}
+            &\incluye{\I}{W} , \I\novacio \text{ pues } \cero\in\I \text{ , } \cero\in\T{\cero}\\
+            &\text{Sean } w_1,w_2 \in \I , c\in\K \\
+            &\ida \exists v_1,v_2 \in V \text{ tales que } \T{cv_1+v_2}=c\T{v_1}+\T{v_2}=c\cdot w_1 + w_2 \in \I 
+        \end{align*}
+    \end{enumerate}
+\end{proof}
 
-
-
-
-
+\begin{theorem}
+    \deftl\\
+    (con $dim(V)<\infty$) Entonces:
+    \begin{align*}
+        dim(V)=dim(\I)+dim(\N)
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    Sea \conjunto{v_1,\dots,v_k} base de \incluye{\N}{V}. Como el conjunto es \li podemos completarlo
+    a una base de $V$. Sean \incluye{\conjunto{v_{k+1},\dots,v_n}}{V} tal que \conjunto{v_1,\dots,v_k,v_{k+1},\dots,v_n}
+    es una base de $V$.\\
+    Probemos \conjunto{\T{\vc{k+1}},\dots,\T{\vc{n}}} es base de \I :
+    \begin{align*}
+        &\text{Sea } w \in \I \ida \exists v \in V \text{ tal que } w=\T{v} \ida v=\sum_{j=1}^{n}c_j\vc{j}\\
+        &\T{v}=\sum_{j=1}^{n}c_j\T{\vc{j}}=\sum_{j=k+1}^{n}c_j\T{\vc{j}} \quad \text{ (porque $\T{\vc{j}}=0$ si $j\leq k$)}\\
+        &\ida w \text{ es combinacion lineal de } \conjunto{\T{\vc{k+1}},\dots,\T{\vc{n}}}  
+    \end{align*}
+    Falta ver que el conjunto es $\li :$
+    \begin{align*}
+        &\ida b_{k+1}\T{\vc{k+1}}+\cdots+b_n\T{\vc{n}}=\underset{\vc{0}}{\T{\underbrace{b_{k+1}v_{k+1}+\cdots+b_nv_n}}}=0\\
+        &\ida \vc{0}\in \N \ida \vc{0}=\sum_{j=k+1}^{n}b_jv_j=\sum_{j=1}^{k}c_iv_i
+        \text{ pues \conjunto{\vc{1},\dots,\vc{k}} es base de \N}\\
+        &\ida \sum_{j=k+1}^{n}b_jv_j+\sum_{j=1}^{k}(-c_i)v_i = 0
+    \end{align*}
+    Como la segunda parte es $\li \ida b_j=0$ , $\forall j=\conjunto{k+1,\cdots,n}$. Con esto probamos que
+    \conjunto{\T{\vc{k+1}},\dots,\T{\vc{n}}} es \li y como genera es base de \I.\\
+    Por lo tanto $\dm{\I}=n-k$ , ademas sabiamos que $\dm{\N}=k$
+    \begin{align*}
+        \ida \dm{\N}+\dm{\I}=k+(n-k)=n=\dm{V}
+    \end{align*}
+\end{proof}
 \end{document}
