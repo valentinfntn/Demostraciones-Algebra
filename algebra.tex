@@ -26,8 +26,8 @@
 }
 \newcommand{\ida}{\Longrightarrow}
 \newcommand{\vuelta}{\longleftarrow}
-\newcommand{\base}{\mathcal{B}}
-
+\newcommand{\base}{\text{$\mathcal{B}$}}
+\newcommand{\basep}{\text{$\mathcal{B}^{\prime}$}}
 
 \begin{document}
 
@@ -49,6 +49,8 @@
 \newcommand{\dm}[1]{\text{$dim(#1)$}\:}
 \newcommand{\vc}[1]{\text{$v_{#1}$}}
 \newcommand{\wc}[1]{\text{$w_{#1}$}}
+\newcommand{\cb}{\text{$\begin{bmatrix} T \end{bmatrix}_{\basep}^{\base}$}}
+\newcommand{\cbs}[3]{\text{$\begin{bmatrix} {#1} \end{bmatrix}_{#2}^{#3}$}}
 
 \title{Demostraciones Algebra}
 \maketitle
@@ -657,7 +659,7 @@ def
 
 \begin{theorem}
     \deftl\\
-    Entonces son equivalentes:
+    (talque $\dm{V}=\dm{W}<\infty$). Entonces son equivalentes:
     \begin{enumerate}
         \item T es un isomorfismo.
         \item T es inyectiva.
@@ -665,5 +667,149 @@ def
         \item Si \conjunto{v_1,\cdots,v_n} es una base de V $\ida$ \conjunto{\T{v_1},\cdots,\T{v_n}} es una base de W.
     \end{enumerate}
 \end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $[1 \ida 2]:$ obvio pues es isomorfismo cuando tanto inyectiva como sobreyectiva.
+        \item $[2 \ida 3]:$ Si T es inyectiva $\ida \N=\conjunto{0}\ida nulidad(T)=0$.\\
+        Por teorema de las dimensiones sabemos que:
+        \begin{align*}
+            &n=\dm{V}=\dm{\N}+\dm{\I}\\
+            &\ida n = 0 + \dm{\I} = \dm{W}\\
+            &\ida \text{ T sobreyectiva (porque $\forall\: \incluye{S}{V}$ : $\dm{S}=\dm{W}$ es el mismo W)}
+        \end{align*}
+        \item $[3 \ida 1]:$ Supongamos T sobreyectiva $\ida\I=\dm{W}$, nuevamente por el teorema de las dimesiones
+        sabemos que $\dm{\N}=0 \ida \N=\conjunto{0}$. Por lo tanto T es inyectiva $\ida T$ es biyectiva.
+        \item $[1 \ida 4]:$ Sea \conjunto{v_1,\cdots,v_n} una base de $V \ida$ \conjunto{v_1,\cdots,v_n} es \li
+        y como es inyectiva (por ser biyectiva) $\ida \conjunto{\T{v_1},\cdots,\T{v_n}}$ tambien es \li\\
+        Ademas \conjunto{v_1,\cdots,v_n} genera $V$ y como es sobreyectiva $\ida \conjunto{\T{v_1},\cdots,\T{v_n}}$
+        genera $W$.
+        \item $[4 \ida 2]:$ Sea $\vc{1} \in \N$ , supongamos que $\vc{1}\neq0 \ida \conjunto{\vc{1}}$ es \li por lo tanto
+        se puede extender a una base $\ida \exists \conjunto{\vc{1},\cdots,\vc{n}}$ base de $V
+        \ida \conjunto{\T{\vc{1}},\cdots,\T{\vc{n}}}$ es base de $W \ida$ en particular $\T{\vc{1}}\neq0$ \:
+        (ABSURDO pues $\vc{1}\in\N$, osea $\T{\vc{1}}=0$).
+    \end{itemize}
+\end{proof}
+\begin{proposition}
+    Sean V,W $\K-$espacio vectoriales de dimension finita. Entonces:
+    \begin{align*}
+        \exists\: T:V\rightarrow W \text{  isomorfismo} \iff \dm{V}=\dm{W}
+    \end{align*}
+\end{proposition}
+
+\begin{definition}
+    Sean V,W espacios vectoriales sobre $\K$. Sean $\base=\conjunto{\vc{1},\cdots,\vc{n}}$ base ordenada de V y
+    $\basep=\conjunto{\wc{1},\cdots,\wc{m}}$ base ordenada de W. Sea $T:V\rightarrow W$ \tl
+    \begin{align*}
+        \text{Supongamos que } T(\vc{j})=\sum_{i=1}^{m} a_{ij}\wc{i} \text{ (cuando $1 \leq j \leq n$)}
+    \end{align*}
+    Definimos la matriz de T respecto a las bases $\base , \basep$ como:
+    \begin{align*}
+        \begin{bmatrix} T \end{bmatrix}_{\basep}^{\base}=(a_{ij}) \quad (\text{con }1\leq i\leq m,1\leq j\leq n)
+    \end{align*}
+    Si \incluye{V}{W} y $\base=\basep$ en particular denotaremos
+    $\begin{bmatrix} T \end{bmatrix}_{\base} =\begin{bmatrix} T \end{bmatrix}_{\base}^{\basep}$
+
+\end{definition}
+
+\begin{theorem}
+    \deftl\\
+    Si $\base=\conjunto{\vc{1},\cdots,\vc{n}},\basep=\conjunto{\wc{1},\cdots,\wc{m}}$ bases ordenadas de V y W
+    respectivamente
+    \begin{align*}
+        \ida \cb \cdot \cbs{v}{\base}{} = \cbs{\T{v}}{\basep}{} \quad \forall v \in V 
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \T{\vc{j}}=\sum_{i=1}^{m} a_{ij}\wc{i} \text{ , } \cb=(a_{ij})
+    \end{align*}
+    Sea $v \in V \ida \exists!$ escalares $x_1,\cdots,x_n$ tales que $v=x_1\vc{1}+\cdots+x_n\vc{n}$
+    $\ida \cbs{v}{\base}{}=(x_1,\cdots,x_n)$
+    \begin{align*}
+            &\ida \T{v}=x_1\T{v_1}+\cdots+x_n\T{v_n}= \sum_{j=1}^{n}x_j\T{\vc{j}}\\
+            &=\sum_{j=1}^{n}\sum_{i=1}^{m}x_j (a_{ij}w_i)=\sum_{j=1}^{n}(\sum_{i=1}^{m}x_j a_{ij})w_i\\
+            &\ida \cbs{\T{v}}{\basep}{}=
+            \underline{
+            \begin{pmatrix}
+            \sum_{i=1}^{n}a_{1j}x_j \:,\: \sum_{i=1}^{n}a_{2j}x_j \:,\: \cdots \:,\: \sum_{i=1}^{n}a_{mj}x_j    
+            \end{pmatrix}
+            }
+            \quad (\star)
+    \end{align*}
+    Por otra parte
+    \begin{align*}
+        \cb \cdot \cbs{v}{\basep}{}=
+        \begin{pmatrix}
+            a_{11}x_1 + \cdots + a_{1n}x_n\\
+            \ddots\\
+            a_{m1}x_1 + \cdots + a_{mn}x_n
+        \end{pmatrix}=
+        \begin{pmatrix}
+            \sum_{i=1}^{n}a_{1j}x_j\\
+            \vdots\\
+            \sum_{i=1}^{n}a_{mj}x_j
+        \end{pmatrix}
+        \quad (\star)
+    \end{align*}
+    Por lo tanto $\cbs{\T{v}}{\basep}{}=\cb\cbs{v}{\basep}{}$ tenemos lo queriamos ver.
+\end{proof}
+
+\begin{proposition}
+    Sea V \espvec de dimension finita. Sean $\base,\basep$ bases de V. Entonces:
+    \begin{align*}
+        \cbs{v}{\basep}{}=\cbs{Id}{\basep}{\base} \cdot \cbs{v}{\base}{} \quad \forall v \in V
+    \end{align*}
+\end{proposition}
+
+\begin{definition}
+    Sea V \espvec de dimension finita. Sean $\base,\basep$ dos bases ordenadas de V.
+    Denotaremos $P=\cbs{Id}{\basep}{\base}$ como la matriz de cambio de base de $\base$ a $\basep$. 
+\end{definition}
+
+\begin{theorem}
+    Sean V,W,Z espacios vectoriales sobre $\K$. Sean $T:V\rightarrow W, S:W\rightarrow Z$ \tl y sean
+    $\base_V,\base_W,\base_Z$ bases de V,W,Z respectivamente. Entonces:
+    \begin{align*}
+        &\cbs{S \circ T}{\base_Z}{\base_V}=\cbs{S}{\base_Z}{\base_W} \cdot \cbs{T}{\base_W}{\base_V} 
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    Sea $v \in V$ arbitrario:
+    \begin{align*}
+        &\cbs{T}{\base_W}{\base_V} \cdot \cbs{v}{\base_V}{} = \cbs{\T{v}}{\base_W}{}
+        \ida \cbs{S}{\base_Z}{\base_W} \cdot \cbs{\T{v}}{\base_W}{} = \cbs{S(\T{v})}{\base_Z}{}\\\\
+        &\cbs{S \circ T}{\base_Z}{\base_V} \cdot  \cbs{v}{\base_V}{} = \cbs{S \circ \T{v}}{\base_Z}{}\\\\
+        &\ida \cbs{S(\T{v})}{\base_Z}{} = \cbs{S \circ \T{v}}{\base_Z}{} \text{ (por definicion de composicion)}
+    \end{align*}
+\end{proof}
+\newpage
+\begin{proposition}
+    Sea V \espvec , $\base = \conjunto{v_1,\cdots,v_n}$ y sea $T:V\rightarrow V$ \tl\\
+    Entonces:
+    \begin{enumerate}
+        \item $\cbs{S\circ T}{\base}{}=\cbs{S}{\base}{} \cdot \cbs{T}{\base}{}$
+        \item Si $I:V\rightarrow V$ es la identidad $\ida \cbs{Id}{\base}{}=Id$
+        \item Si T es inversible $\ida \cbs{T}{\base}{}$ es inversible y
+        $\cbs{T^{-1}}{\base}{}=\cbs{T}{\base}{}^{-1}$
+    \end{enumerate}
+\end{proposition}
+\begin{proposition}
+    Sea V \espvec de dimension finita, sean $\base,\basep$ dos bases de V.
+    \begin{align*}
+        &\text{Entonces si } P=\cbs{Id}{\basep}{\base} \ida P^{-1}=\cbs{Id}{\base}{\basep}
+    \end{align*}
+\end{proposition}
+
+\begin{theorem}
+    \deftl\\
+    Sean $\base_V,\basep_V$ dos bases de V y sean  $\base_W,\basep_W$ dos bases de W.\\
+    Sean $P=\cbs{Id}{\base_V}{\basep_V} (\basep_V\rightarrow\base_V)$
+    y $Q=\cbs{Id}{\base_W}{\basep_W} (\basep_W\rightarrow\base_W)$. Entonces:
+    \begin{align*}
+        \cbs{T}{\base_V}{\basep_V}= Q^{-1} \cdot \cbs{T}{\base_W}{\base_V} \cdot P
+    \end{align*}
+\end{theorem}
+
+
 
 \end{document}
