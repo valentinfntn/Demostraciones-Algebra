@@ -806,10 +806,100 @@ def
     Sean $P=\cbs{Id}{\base_V}{\basep_V} (\basep_V\rightarrow\base_V)$
     y $Q=\cbs{Id}{\base_W}{\basep_W} (\basep_W\rightarrow\base_W)$. Entonces:
     \begin{align*}
-        \cbs{T}{\base_V}{\basep_V}= Q^{-1} \cdot \cbs{T}{\base_W}{\base_V} \cdot P
+        \cbs{T}{\basep_W}{\basep_V}= Q^{-1} \cdot \cbs{T}{\base_W}{\base_V} \cdot P
     \end{align*}
 \end{theorem}
+\begin{proof}
+    Sea $v \in V$ expresado en base $\basep_V$
+    \begin{align*}
+        &\cbs{T}{\basep_W}{\basep_V} \cdot \cbs{v}{\basep_V}{} = \cbs{\T{v}}{\basep_W}{}\\\\
+        &(Q^{-1} \cdot \cbs{T}{\base_W}{\base_V} \cdot P )\cdot \cbs{v}{\basep_V}{}
+        = (Q^{-1} \cdot \cbs{T}{\base_W}{\base_V}) \cdot \cbs{v}{\base_V}{}\\
+        &= Q^{-1} \cdot  \cbs{\T{v}}{\base_W}{} = \cbs{\T{v}}{\basep_W}{}
+    \end{align*}
+    Por lo tanto tenemos lo queriamos ver $\cbs{T}{\basep_W}{\basep_V}= Q^{-1} \cdot \cbs{T}{\base_W}{\base_V} \cdot P$
+\end{proof}
 
+\begin{theorem}
+    Sea \espvec , $T:V \rightarrow V$ \tl , sean $\base,\basep$ base de V. Sea P la matriz de cambio de base de $\basep$ a $\base$
+    $(P=\cbs{Id}{\base}{\basep})$. Entonces: \underline{$\cbs{T}{\basep}{}= P^{-1} \cdot \cbs{T}{\base}{} \cdot P$}
+\end{theorem}
 
+\newpage
+\begin{definition}
+    Dado una matriz $A \in \mtx{n}{n}$ dados $1\leq i,j \leq n$ definimos la matriz $A(i \tq j)$ como la matriz $(n-1)\times (n-1)$
+    que se obtiene eliminando la fila $i$ y la columna $j$ de A.
+\end{definition}
+\begin{definition}
+    Sea $n \in \mathbb{N}$ , $A \in \mtx{n}{n}$ el determinante de A se define de la siguiente forma:
+    \begin{enumerate}
+        \item Si $n=1$ , $A=\begin{pmatrix} a \end{pmatrix} \ida det(A)=a$
+        \item Si $n>1$ (desarrollamos por la primera columna de A)
+        \begin{align*}
+            det(A)= \sum_{i=1}^{n}\: (-1)^{i+1} \cdot a_{i1} \cdot det(A(i \tq 1))
+        \end{align*}
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    Si $A \in \mtx{n}{n}$ es una matriz triangular $\ida det(A)= a_{11} \times a_{22} \cdots \times a_{nn}$ (el producto de la diagonal).
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        &A=\begin{pmatrix}
+            \begin{array}{ccccc}
+            a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+            0      & a_{22} & a_{23} & \cdots & a_{2n} \\
+            0      & 0      & a_{33} & \cdots & a_{3n} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & 0      & \cdots & a_{nn}
+            \end{array}
+        \end{pmatrix}
+        \ida det(A)=a_{11}\cdot det(1\tq 1)+ \cdots + 0\cdot det(n\tq 1)\\
+        &A(1\tq 1)=\begin{pmatrix}
+            \begin{array}{ccc}
+            a_{22} & \cdots & a_{2n} \\
+            \vdots & \ddots & \vdots \\
+            0      & \cdots & a_{nn}
+            \end{array}
+        \end{pmatrix}
+        \ida \text{ nuevamente la matriz es triangular superior}
+    \end{align*}
+    Por lo tanto $det(A)= a_{11}\times a_{22}\times \cdots \times a_{nn}$.
+\end{proof}
+\begin{proposition}
+    Sea $A\in \mtx{n}{n}$. Entonces:
+    \begin{itemize}
+        \item Si $A=Id \ida det(A)=1$
+        \item Si A es una MERF $\ida det(A)=\begin{cases} 1 \text{ si A no tiene filas nulas}\\0 \text{ c.c}\end{cases}$
+    \end{itemize}
+\end{proposition}
+
+\begin{theorem}
+    Sea $A \in \mtx{n}{n}$ , $B=$ matriz que se obtiene de A por medio de una operacion elemental por filas $(e_j(A)=B)$. Entonces:
+    \begin{enumerate}
+        \item Si $e= e^{c}_{i} \ida det(B)= c\cdot det(A)$
+        \item Si $e= e^{c}_{i,j} \ida det(B)= det(A)$
+        \item Si $e= e_{i,j} \ida det(B)= -det(A)$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Veamos la prueba para $A \in \mtx{2}{2}:$
+        \begin{enumerate}
+            \item $B=\left\{\begin{smallmatrix} a_{11} & a_{12}\\ ca_{21} & ca_{22} \end{smallmatrix} \right\}
+            \ida det(B)= a_{11}+c(a_{22}) - c(a_{21})a_{12} = c(a_{11}a_{22}-a_{21}a_{12}) = c \cdot det(A)$
+            \item $B=\left\{ \begin{smallmatrix} a_{11} + ca_{21} & a_{12} + ca_{22}\\ a_{21} & a_{22} \end{smallmatrix} \right\}
+            \ida det(B)= (a_{11} + ca_{21}) a_{22} - (a_{12} + ca_{22}) a_{21}\\
+            \ida det(B)= (a_{11}a_{22}-a_{21}a_{12}) + (c(a_{21}+a_{22})-c(a_{21}+a_{22}))= det(A)$
+            \item $B=\left\{\begin{smallmatrix} a_{21} & a_{22}\\ a_{11} & a_{12} \end{smallmatrix} \right\}
+            \ida det(B)= a_{21}a_{12}-a_{11}a_{22} = -(a_{11}a_{22}-a_{21}a_{12}) = -det(A)$
+        \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Sean $A,B \in \mtx{n}{n} \ida det(A \cdot B)=det(A) \cdot det(B)$    
+\end{theorem}
+\begin{proposition}
+    Si $A \in \mtx{n}{n}$ es inversible $\ida det(A)\neq0$ y $det(A^{-1})=\frac{1}{det(A)}$
+\end{proposition}
 
 \end{document}
