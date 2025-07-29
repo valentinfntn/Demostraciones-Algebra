@@ -25,7 +25,7 @@
     \mathbb{K}
 }
 \newcommand{\ida}{\Longrightarrow}
-\newcommand{\vuelta}{\longleftarrow}
+\newcommand{\vuelta}{\Longleftarrow}
 \newcommand{\base}{\text{$\mathcal{B}$}}
 \newcommand{\basep}{\text{$\mathcal{B}^{\prime}$}}
 
@@ -51,6 +51,7 @@
 \newcommand{\wc}[1]{\text{$w_{#1}$}}
 \newcommand{\cb}{\text{$\begin{bmatrix} T \end{bmatrix}_{\basep}^{\base}$}}
 \newcommand{\cbs}[3]{\text{$\begin{bmatrix} {#1} \end{bmatrix}_{#2}^{#3}$}}
+\newcommand{\defaut}{\text{Sea $T:V\rightarrow V$} transformacion lineal y $V$ un $\mathbb{K}-$espacio vectorial}
 
 \title{Demostraciones Algebra}
 \maketitle
@@ -901,5 +902,56 @@ def
 \begin{proposition}
     Si $A \in \mtx{n}{n}$ es inversible $\ida det(A)\neq0$ y $det(A^{-1})=\frac{1}{det(A)}$
 \end{proposition}
+\begin{proposition}
+    Sea $A \in \mtx{n}{n}$. Sean $E_1,\cdots,E_r$ matrices elementales y sea $B=E_r \cdots E_1A$.
+    Entonces $det(B)=det(E_1)\times \cdots \times det(E_r)\times det(A)$ y se cumple lo siguiente:
+    \begin{enumerate}
+        \item Si B tiene alguna fila nula $\ida det(A)=0$
+        \item Si B es una MERF sin filas nulas $\ida det(A)=\frac{1}{det(E_1)\times\cdots\times E_r}$
+    \end{enumerate}
+\end{proposition}
+\begin{theorem}
+    Sea $A \in \mtx{n}{n}$. Entonces A es inversible $\iff det(A)\neq 0$
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $(\ida):$ Como A es inversible $\exists A^{-1}$ talque $A\cdot A^{-1}=Id$ y como vimos anteriormente
+        \begin{align*}
+            &det(Id)=1=det(A)\times \underset{\neq 0}{\underbrace{det(A^{-1})}}\\
+            &\ida det(A)\neq 0
+        \end{align*}
+        \item $(\vuelta):$ Sea M la MERF $\sim A$ $\ida \exists$ matriz inversible E (producto de elementales) talque:
+        \begin{align*}
+            &A=E\cdot M \ida A \text{ inversible} \iff M \text{ inversible}\\
+            &\iff M=Id \text{ (no tiene filas nulas)}\\
+            &\iff det(M)=1 \neq 0 \iff det(A)\neq 0
+        \end{align*}
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sea $A \in \mtx{n}{n}$ inversible $\ida A^{-1}=\frac{1}{det(A)} \cdot adj(A)$ donde $adj(A)$ es la matriz:\\
+    $(adj(A))_{ij}= (-1)^{i+j} \cdot det(A(j \tq i))$
+\end{theorem}
+
+\newpage
+
+\begin{definition}
+    \defaut.
+    \begin{enumerate}
+        \item $\lambda \in \K$ se dice autovalor de T si $\exists v \in V , v\neq0$ tal que $\T{v}=\lambda\cdot v$.
+        \item Si $\lambda$ autovalor, cada vector $v\in V$ que satisface $\T{v}=\lambda\cdot v$ se llama
+        autovector de T.
+        \item Sea $W_\lambda = \conjunto{v\in V : \T{v}=\lambda\cdot v}$ el autoespacio de autovalor $\lambda$
+        (o el espacio propio asociado a $\lambda$). 
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    \defaut. Entonces son equivalentes:
+    \begin{enumerate}
+        \item $\lambda \in \K$ es autovalor de T
+        \item $det(T-\lambda\cdot I)=0$
+    \end{enumerate}
+\end{theorem}
 
 \end{document}
