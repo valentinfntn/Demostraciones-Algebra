@@ -43,7 +43,7 @@
 \newcommand{\T}[1]{\text{$T({#1})$}}
 \newcommand{\novacio}{\text{$\neq\emptyset$}\:}
 \newcommand{\cero}{\text{$\vec{0}$}}
-\newcommand{\deftl}{\text{Sean $V,W$ $\mathbb{K}-$espacio vectoriales, sea $T: V\rightarrow W$ transformacion lineal.}\:}
+\newcommand{\deftl}{\text{Sean $V,W$ $\mathbb{K}-$espacio vectoriales, sea $T: V\to W$ transformacion lineal.}\:}
 \newcommand{\N}{\text{$Nu(T)$}\:}
 \newcommand{\I}{\text{$Im(T)$}\:}
 \newcommand{\dm}[1]{\text{$dim(#1)$}\:}
@@ -51,7 +51,7 @@
 \newcommand{\wc}[1]{\text{$w_{#1}$}}
 \newcommand{\cb}{\text{$\begin{bmatrix} T \end{bmatrix}_{\basep}^{\base}$}}
 \newcommand{\cbs}[3]{\text{$\begin{bmatrix} {#1} \end{bmatrix}_{#2}^{#3}$}}
-\newcommand{\defaut}{\text{Sea $T:V\rightarrow V$} transformacion lineal y $V$ un $\mathbb{K}-$espacio vectorial}
+\newcommand{\defaut}{\text{Sea $T:V\to V$} transformacion lineal y $V$ un $\mathbb{K}-$espacio vectorial}
 
 \title{Demostraciones Algebra}
 \maketitle
@@ -62,7 +62,7 @@
 \end{theorem}
 \begin{proof}
     Si $A \sim B \Longrightarrow \exists$ una sucesion de matrices tal que
-    $A=A_0 \rightarrow A_1 \rightarrow \dots \rightarrow A_n=B$, donde cada $A_j$ se obtiene por
+    $A=A_0 \to A_1 \to \dots \to A_n=B$, donde cada $A_j$ se obtiene por
     medio de una operacion elemental por filas.\\
     Por lo tanto basta probar que $A_jx=0$ y $A_{j+1}x=0$.
     \begin{itemize}
@@ -485,7 +485,7 @@ def
 \newpage
 \begin{definition}
     Dados V,W espacio vectoriales sobre $\K$.\\
-    Una transformacion lineal de V en W es una funcion, $T:V \rightarrow W$ que satisface:
+    Una transformacion lineal de V en W es una funcion, $T:V \to W$ que satisface:
     \begin{itemize}
         \item $T(v+w)=T(v)+T(w)$ \quad $\forall v,w \in V$
         \item $T(c\cdot v)= c\cdot T(v)$ \quad $\forall v\in V, \forall c \in \K$
@@ -498,7 +498,7 @@ def
 \end{definition}
 
 \begin{theorem}
-    Sean V,W \espvec , $T:V\rightarrow W$ una \tl
+    Sean V,W \espvec , $T:V\to W$ una \tl
     \begin{enumerate}
         \item Si $\incluye{U}{V}$ es un subespacio de $V \ida T(U)$ es un subespacio de $W$.
         \item Si $\incluye{Z}{W}$ es un subespacio de $W \ida T^{-1}(Z)=\conjunto{v \in V \tq T(w)\in Z}$
@@ -592,7 +592,7 @@ def
     Sea $A \in \mtx{m}{n}$ Entonces: Rango fila de A = Rango columna de A
 \end{theorem}
 \begin{proof}
-    Sea $T:\K^{n}\rightarrow\K^{m}$ la \tl definida por $\T{x}=A \cdot x$ , $\N=\conjunto{x \in \K^n : Ax=0}$.\\
+    Sea $T:\K^{n}\to\K^{m}$ la \tl definida por $\T{x}=A \cdot x$ , $\N=\conjunto{x \in \K^n : Ax=0}$.\\
     Sabemos que $A$ se puede reducir a una MERF $R$.
     \begin{align*}
         &\ida \text{espacio fila de A = espacio fila de R}\\
@@ -600,7 +600,7 @@ def
         &\ida \dm{\N}=n-k \text{ , Rango Fila (A) = } k\\ 
         &\ida \dm{\K^n}=n = \dm{\N}+ \text{ Rango Fila (A)}
     \end{align*}
-    Por otra parte $T:\K^{n}\rightarrow\K^{m}$ , $x \rightarrow Ax$ entonces \I es generada por las columnas de A:
+    Por otra parte $T:\K^{n}\to\K^{m}$ , $x \to Ax$ entonces \I es generada por las columnas de A:
     \begin{align*}
         &\K^m \ida Ax =
         \begin{pmatrix} a_{11} \cdots a_{1n} \\ \vdots\quad\ddots\quad \vdots \\ a_{m1} \cdots a_{mn} \end{pmatrix}
@@ -693,13 +693,13 @@ def
 \begin{proposition}
     Sean V,W $\K-$espacio vectoriales de dimension finita. Entonces:
     \begin{align*}
-        \exists\: T:V\rightarrow W \text{  isomorfismo} \iff \dm{V}=\dm{W}
+        \exists\: T:V\to W \text{  isomorfismo} \iff \dm{V}=\dm{W}
     \end{align*}
 \end{proposition}
 
 \begin{definition}
     Sean V,W espacios vectoriales sobre $\K$. Sean $\base=\conjunto{\vc{1},\cdots,\vc{n}}$ base ordenada de V y
-    $\basep=\conjunto{\wc{1},\cdots,\wc{m}}$ base ordenada de W. Sea $T:V\rightarrow W$ \tl
+    $\basep=\conjunto{\wc{1},\cdots,\wc{m}}$ base ordenada de W. Sea $T:V\to W$ \tl
     \begin{align*}
         \text{Supongamos que } T(\vc{j})=\sum_{i=1}^{m} a_{ij}\wc{i} \text{ (cuando $1 \leq j \leq n$)}
     \end{align*}
@@ -768,7 +768,7 @@ def
 \end{definition}
 
 \begin{theorem}
-    Sean V,W,Z espacios vectoriales sobre $\K$. Sean $T:V\rightarrow W, S:W\rightarrow Z$ \tl y sean
+    Sean V,W,Z espacios vectoriales sobre $\K$. Sean $T:V\to W, S:W\to Z$ \tl y sean
     $\base_V,\base_W,\base_Z$ bases de V,W,Z respectivamente. Entonces:
     \begin{align*}
         &\cbs{S \circ T}{\base_Z}{\base_V}=\cbs{S}{\base_Z}{\base_W} \cdot \cbs{T}{\base_W}{\base_V} 
@@ -785,11 +785,11 @@ def
 \end{proof}
 \newpage
 \begin{proposition}
-    Sea V \espvec , $\base = \conjunto{v_1,\cdots,v_n}$ y sea $T:V\rightarrow V$ \tl\\
+    Sea V \espvec , $\base = \conjunto{v_1,\cdots,v_n}$ y sea $T:V\to V$ \tl\\
     Entonces:
     \begin{enumerate}
         \item $\cbs{S\circ T}{\base}{}=\cbs{S}{\base}{} \cdot \cbs{T}{\base}{}$
-        \item Si $I:V\rightarrow V$ es la identidad $\ida \cbs{Id}{\base}{}=Id$
+        \item Si $I:V\to V$ es la identidad $\ida \cbs{Id}{\base}{}=Id$
         \item Si T es inversible $\ida \cbs{T}{\base}{}$ es inversible y
         $\cbs{T^{-1}}{\base}{}=\cbs{T}{\base}{}^{-1}$
     \end{enumerate}
@@ -804,8 +804,8 @@ def
 \begin{theorem}
     \deftl\\
     Sean $\base_V,\basep_V$ dos bases de V y sean  $\base_W,\basep_W$ dos bases de W.\\
-    Sean $P=\cbs{Id}{\base_V}{\basep_V} (\basep_V\rightarrow\base_V)$
-    y $Q=\cbs{Id}{\base_W}{\basep_W} (\basep_W\rightarrow\base_W)$. Entonces:
+    Sean $P=\cbs{Id}{\base_V}{\basep_V} (\basep_V\to\base_V)$
+    y $Q=\cbs{Id}{\base_W}{\basep_W} (\basep_W\to\base_W)$. Entonces:
     \begin{align*}
         \cbs{T}{\basep_W}{\basep_V}= Q^{-1} \cdot \cbs{T}{\base_W}{\base_V} \cdot P
     \end{align*}
@@ -822,7 +822,7 @@ def
 \end{proof}
 
 \begin{theorem}
-    Sea \espvec , $T:V \rightarrow V$ \tl , sean $\base,\basep$ base de V. Sea P la matriz de cambio de base de $\basep$ a $\base$
+    Sea \espvec , $T:V \to V$ \tl , sean $\base,\basep$ base de V. Sea P la matriz de cambio de base de $\basep$ a $\base$
     $(P=\cbs{Id}{\base}{\basep})$. Entonces: \underline{$\cbs{T}{\basep}{}= P^{-1} \cdot \cbs{T}{\base}{} \cdot P$}
 \end{theorem}
 
@@ -963,4 +963,76 @@ def
     Lo denotaremos $A \sim B$.
 \end{definition}
 
+\begin{definition}
+Sea \( A \in \mathbb{K}^{n \times n} \). Entonces, los autovalores, autovectores y autoespacios de $A$
+coinciden con los de la transformación lineal $T_A : \K^n \to \K^n$  dada por $T_A(x) = Ax$.
+\end{definition}
+
+\begin{definition}
+    \defaut.
+    \begin{itemize}
+        \item T es diagonalizable si $\exists \base$ base de V tal que $\cbs{T}{\base}{}$ es diagonal.
+        \item $A \in \mtx{n}{n}$ es diagonalizable si A es semejante a D $(\exists C \text{ inversible}: C^{-1}AC=D)$.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    $T:V \to V$ es diagonalizable $\iff \exists \base$ base de V formada por autovectores de T:
+    \begin{align*}
+        \exists \base=\conjunto{\vc{1},\cdots,\vc{n}} : \T{\vc{j}}=\lambda_j\vc{j} \text{ , para algun } \lambda_j \in \K
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $(\vuelta):$ $\base=\conjunto{\vc{1},\cdots,\vc{n}}$ base , $\T{\vc{j}}=\lambda_j\vc{j}$
+        \begin{align*}
+            \cbs{T}{\base}{}=\begin{pmatrix}
+                \lambda_1 & 0         & \cdots & 0     \\
+                0         & \lambda_2 & \cdots & 0      \\
+                \vdots    & \vdots    & \ddots & \vdots  \\
+                0         & 0         & \cdots & \lambda_n\\
+            \end{pmatrix}
+            \text{diagonal} \ida T \text{ es diagonalizable}
+        \end{align*}
+        \item $(\ida):$ Si T es diagonalizable $\ida \exists \base=\conjunto{\vc{1},\cdots,\vc{n}}$ base de V :
+        $\cbs{T}{\base}{}$ es diagonalizable
+        \begin{align*}
+            &\ida \T{\vc{1}}=\lambda_1\vc{1} + 0\cdot \vc{2}+\cdots + 0\cdot \vc{n}= \lambda_1\vc{1}\\
+            &\text{En general: } \T{\vc{j}}=\lambda_j\vc{j} \text{ , donde cada \vc{j} es un autovector}
+        \end{align*}
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Sea $T:V\to V$ \tl , sean $\vc{1},\cdots,\vc{r}$ autovectores de T (no nulos) asociados a autovalores distintos
+    $\ida \conjunto{\vc{1},\cdots,\vc{r}}$ es \li
+\end{theorem}
+\begin{proof}
+    Veamos por induccion, caso \conjunto{\vc{1}} es claramente \li , supongamos que vale el caso
+    \conjunto{\vc{1},\cdots,\vc{r-1}}.
+    Basta ver que \conjunto{\vc{1},\cdots,\vc{r}} es \li por lo tanto veamos:
+    \begin{align}
+        \underline{c_1\vc{1} + \cdots c_{r}\vc{r}=0} \ida c_j=0 \: \forall j
+    \end{align}
+    Sabemos que todos los $\vc{j}\neq0$, ahora aplicando T tenemos:
+    \begin{align}
+        \T{c_1\vc{1}+\cdots c_{r}\vc{r}}=\underline{c_1\cdot\lambda_1\vc{1} + \cdots+ c_{r}\cdot\lambda_{r}\vc{r}=0}
+    \end{align}    
+    Si multiplicamos $(1) \times \lambda_{r}$ y se lo restamos a $(2)$ obtenemos:
+    \begin{align}
+        c_1\cdot(\lambda_1 - \lambda_{r} )\vc{1} + \cdots
+        +c_{r-1}\cdot(\lambda_{r-1} - \lambda_{r} )\vc{r-1} + c_{r}\cdot (\lambda_{r}-\lambda_{r})\vc{r}=0
+    \end{align}
+    Como sabemos cada \vc{j} esta asociados a un autovalor distintito (3) y por hipotesis sabemos que
+    \conjunto{\vc{1},\cdots,\vc{r-1}} es \li
+    \begin{align}
+        \ida (\lambda_i - \lambda_{r})\neq0 , \forall i\leq r-1 \ida c_i=0 \:,\:\forall i\leq r-1
+    \end{align}
+    Si juntamos (1) y (4) tenemos que:
+    \begin{align*}
+        \underset{0}{\underbrace{c_1}}\vc{1} + \underset{0}{\underbrace{c_2}}\vc{2} +
+        \cdots + \underset{0}{\underbrace{c_{r-1}}}\vc{r-1} + c_{r}\vc{r}=0
+    \end{align*}
+    Por definicion \vc{r} es no nulo $\ida c_r =0$. Por lo tanto \conjunto{v_1,\cdots,v_r}  es \li
+\end{proof}
 \end{document}
