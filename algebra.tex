@@ -1035,4 +1035,35 @@ coinciden con los de la transformación lineal $T_A : \K^n \to \K^n$  dada por $
     \end{align*}
     Por definicion \vc{r} es no nulo $\ida c_r =0$. Por lo tanto \conjunto{v_1,\cdots,v_r}  es \li
 \end{proof}
+
+\begin{proposition}
+    Sea $T:V \to V$ lineal, con $dim(V)=n$. Entonces si $T$ tiene n autovalores distintos $\ida T$ es diagonalizable.
+\end{proposition}
+
+\begin{definition}
+    Si $A \in \mtx{n}{n}$ definimos el polinomio caracteristico de A como:
+    \begin{align*}
+        P_A=det(xI-A) \in \K[x]
+    \end{align*}
+    Si $T:V\to V$ es lineal, el polinomio caracteristico de T es:
+    \begin{align*}
+        P_T=det(xI-T) \in \K[x]
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Sea $T:V\to V$ transformacion lineal, V espacio vectorial de dimension finita sobre $\K$.
+    Sean $\lambda_1,\cdots,\lambda_r$ los autovalores (distintos) de T y sea \W{j} el autoespacio
+    asociado a $\lambda_j$ $(\W{j}=Nu(T-\lambda_jI))$. Entonces son equivalentes:
+    \begin{enumerate}
+        \item T es diagonalizable.
+        \item El polinomio caracteristico de T es:
+        \begin{align*}
+            P_T(x)= (x-\lambda_1)^{d_1}\times \cdots \times (x-\lambda_r)^{d_r}
+            \quad \text{(con $d_j$ la dimension de \W{j})}
+        \end{align*}
+        \item $dim(V)=dim(\W{1})+\cdots +dim(\W{r})$ (en particular $\base=\base_1\cup\cdots\cup\base_r$
+        es una base de V, cada $\base_j$ es base de los $\W{j}$ y estos son los autovectores del $\lambda_j$)\hfil
+    \end{enumerate}
+\end{theorem}
 \end{document}
